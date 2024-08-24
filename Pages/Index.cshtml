@@ -1,0 +1,11 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome to Our Web Application!</h1>
+    <p>You have visited this page @Model.VisitCount times.</p>
+    <p>Your IP Address is: @Model.IpAddress</p>
+    <p>Your Time Zone is: @Model.TimeZone</p>
+</div>
