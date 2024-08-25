@@ -17,5 +17,5 @@ RUN dotnet publish "part1.csproj" -c Release -o /app/publish
 # Build the runtime image 
 FROM base AS final 
 WORKDIR /app 
-COPY --from=publish/app/publish . 
+COPY --from=publish /app/publish . 
 ENTRYPOINT ["dotnet", "part1.dll"]
