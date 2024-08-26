@@ -44,7 +44,7 @@ namespace part1.Pages
             Response.Cookies.Append("VisitCount", VisitCount.ToString(), cookieOptions);
 
             // Get the client IP address
-             IpAddress = Request.Headers["X-Forwarded-For"].FirstOrDefault() ?? Request.HttpContext.Connection.RemoteIpAddress?.ToString();
+            IpAddress = Request.Headers["X-Forwarded-For"].FirstOrDefault()?.Split(',').FirstOrDefault() ?? Request.HttpContext.Connection.RemoteIpAddress?.ToString();
             // Get the client's time zone
             TimeZone = TimeZoneInfo.Local.StandardName;
         }
