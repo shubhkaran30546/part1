@@ -17,7 +17,7 @@ namespace part1.Pages
         public string? IpAddress { get; private set; }
         public string? TimeZone { get; private set; }
 
-        public void OnGet()
+        public void OnGet(string? timezone)
         {
             // Get or create the persistent cookie
             VisitCount = 0;
