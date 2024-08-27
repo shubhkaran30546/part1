@@ -17,7 +17,7 @@ namespace part1.Pages
         public string? IpAddress { get; private set; }
         public string? TimeZone { get; private set; }
 
-        public void OnGet(string? timezone)
+        public void OnGet()
         {
             // Get or create the persistent cookie
             VisitCount = 0;
@@ -46,7 +46,7 @@ namespace part1.Pages
             // Get the client IP address
             IpAddress = Request.Headers["X-Forwarded-For"].FirstOrDefault()?.Split(',').FirstOrDefault() ?? Request.HttpContext.Connection.RemoteIpAddress?.ToString();
             // Get the client's time zone
-            TimeZone = timeZone ?? "Unknown";
+            TimeZone = TimeZoneInfo.Local.StandardName;
         }
     }
 }
