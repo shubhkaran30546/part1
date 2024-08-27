@@ -8,4 +8,13 @@
     <p>You have visited this page @Model.VisitCount times.</p>
     <p>Your IP Address is: @Model.IpAddress</p>
     <p>Your Time Zone is: @Model.TimeZone</p>
-</div>
+</div> <script>// Function to detect the client's time zone
+    function getClientTimeZone() {
+        var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone; // Check if the time zone is already set in the URL query string 
+if (!window.location.search.includes("timeZone")) 
+        {
+            // Redirect to the same page with the time zone as a query parameter 
+window.location.href = window.location.pathname + "?timeZone=" + encodeURIComponent(timeZone);
+        }
+    } // Execute the function on page load
+    window.onload = getClientTimeZone;</script>

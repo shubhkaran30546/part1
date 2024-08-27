@@ -46,7 +46,7 @@ namespace part1.Pages
             // Get the client IP address
             IpAddress = Request.Headers["X-Forwarded-For"].FirstOrDefault()?.Split(',').FirstOrDefault() ?? Request.HttpContext.Connection.RemoteIpAddress?.ToString();
             // Get the client's time zone
-            TimeZone = TimeZoneInfo.Local.StandardName;
+            TimeZone = timeZone ?? "Unknown";
         }
     }
 }
